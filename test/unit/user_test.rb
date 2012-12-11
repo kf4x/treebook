@@ -31,6 +31,7 @@ class UserTest < ActiveSupport::TestCase
 		user.profile_name = "Javier C"
 
 		assert !user.save							#should NOT save the user
+		puts "\n\n\n" + user.errors.inspect
 		assert !user.errors[:profile_name].empty?	#check errors array **should NOT be empty
 		assert user.errors[:profile_name].include?("Must be formatted correctly.") #this msg must be included
 	end

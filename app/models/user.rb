@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   #format Check
   validates_format_of :profile_name, 
-                      :with => /[a-zA-Z]/,
+                      :with => /^[a-zA-Z0-9_-]+$/,
                       :message => "Must be formatted correctly."
   # validates :profile_name, format: {
   #   with: /a-zA-Z09_-/,

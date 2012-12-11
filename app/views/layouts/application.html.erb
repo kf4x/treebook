@@ -13,7 +13,7 @@
 			<div class="container">
 				<a href="#" class="brand">Treehouse</a>
 				<ul class="nav">
-					<li> <%= link_to "All statuses", statuses_path %></li>
+					<li> <%= link_to "All statuses", feed_path %></li>
 				</ul>
 				<ul class="nav pull-right">
 					<% if user_signed_in? %>	
@@ -21,13 +21,13 @@
 						<%= link_to current_user.full_name, edit_user_registration_path %>
 					</li>
 					<li class="nav pull-right">
-						<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+						<%= link_to "Logout", logout_path %>
 					</li>						
 					<% else %>
 					<li class="nav pull-right">
-						<%= link_to "Sign up", new_user_registration_path %>
+						<%= link_to "Sign up", register_path %>
 					</li>
-					<li class="nav pull-right"> <%= link_to "Login", new_user_session_path %> </li>
+					<li class="nav pull-right"> <%= link_to "Login", login_path %> </li>
 					<% end %>
 				</ul>
 			</div>

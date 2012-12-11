@@ -5,6 +5,17 @@ Treebook::Application.routes.draw do
 
   root to: 'statuses#index'
 
+  devise_scope :user do
+
+    #get 'root/register' then
+    #to controller then action
+    get 'register', :to => "devise/registrations#new", :as => :register #as means naming to refer to name_path
+    get 'login', :to => "devise/sessions#new", :as => :login
+    get 'logout', :to => "devise/sessions#destroy", :as => :logout
+    get 'feed', :to => "statuses#index",  :as => "feed"
+
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

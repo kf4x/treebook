@@ -6,7 +6,7 @@ module ApplicationHelper
 		when :alert
 			"alert-error"	#class="alert alert-error"
 		when :notice
-			"alert-notice"	#class="alert alert-notice"
+			"alert-success"	#class="alert alert-success"
 		else
 			""
 		end

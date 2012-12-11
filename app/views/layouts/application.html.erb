@@ -34,20 +34,11 @@
 		</div>
 	</div>
 	<div class="container">
-		<% flash.each do |variable|
-			
-		end %>
-		<% if flash[:notice] %>
-			<div class = "alert alert-success">
+		
+		<% flash.each do |type, message| %>
+			<div class = "alert <%= flash_type_hlpr type %>"> 
 				<button class = "close" data-dismiss="alert">x</button>
-				<%= flash[:notice] %>
-			</div>
-		<% end %>
-
-		<% if flash[:alert] %>
-			<div class = "alert alert-error">
-				<button class = "close" data-dismiss="alert">x</button>
-				<%= flash[:alert] %>
+				<%= message %>
 			</div>
 		<% end %>
 

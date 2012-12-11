@@ -3,13 +3,15 @@
 # DO NOT USE TABS!
 # ADD SPACE between KEY and ":" 
 
-#one: {}
-# column: value
-#
-#two: {}
-#  column: value
+
 javier :
   profile_name : "javier"
   email : "youracow@gmail.com"
   first_name : "Javier"
   last_name : "Chavez"
+
+jim :
+  profile_name : "jim"
+  email : "jim@gmail.com"
+  first_name : "Jim"
+  last_name : "BoOO"

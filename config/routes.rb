@@ -18,6 +18,8 @@ Treebook::Application.routes.draw do
 
   end
 
+  get '/:id', :to => "profiles#show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

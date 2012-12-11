@@ -23,7 +23,14 @@ class StatusesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "must be logged in to post status" do
+    post :create, :status => {:content => "Hello"}
+    assert_redirected_to new_user_session_path
+  end
+
   test "should create status" do
+    sign_in users(:javier)      #have to sign in user
+
     assert_difference('Status.count') do
       post :create, status: { content: @status.content}
     end
@@ -37,11 +44,19 @@ class StatusesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    sign_in users(:javier)      #have to sign in user   
     get :edit, id: @status
     assert_response :success
   end
+  
+  test "should redirect to login if not signed in" do
+    put :update, id: @status, status: { content: @status.content }
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
 
-  test "should update status" do
+  test "should update status when logged in" do
+    sign_in users(:javier)      #have to sign in user
     put :update, id: @status, status: { content: @status.content }
     assert_redirected_to status_path(assigns(:status))
   end

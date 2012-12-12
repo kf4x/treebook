@@ -19,6 +19,9 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 ##################################
 
+group :test do
+	gem 'shoulda'
+end
 
 gem 'devise'
 gem 'simple_form'

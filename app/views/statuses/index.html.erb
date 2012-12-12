@@ -3,13 +3,16 @@
 </div>
 
 <%= link_to "Post a new Status", new_status_path, class: "btn btn-success" %>
-<% @statuses.each do |status| %>
 
+
+<% @statuses.each do |status| %>
 	<div class ="status">
 		<div class="row">
+			<!-- gravatar img -->
 			<div class="span1">
-				<%= image_tag status.user.gravatar_url %>
+				<%= image_tag status.user.gravatar_url %> <!-- gravatar_url in user model-->
 			</div>
+			<!-- imformation -->
 			<div class= "span7">
 				<strong>Name: <%= status.user.full_name %></strong>
 				<p><%= status.content %></p>
@@ -24,5 +27,4 @@
 			</div>
 		</div>
 	</div>
-
 <% end %>

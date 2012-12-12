@@ -5,13 +5,17 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+#FOR HEROKU
 ##################################
-#uncomment for heroku THEN
+#uncomment THEN
+# group :development, :test do
+# 	gem 'pg'
+# end
 # group :development, :test do
 # 	gem 'sqlite3'
 # end
 
-#comment out for heroku
+#comment out
 gem 'sqlite3'
 ##################################
 

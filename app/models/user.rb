@@ -22,10 +22,6 @@ class User < ActiveRecord::Base
   validates_format_of :profile_name, 
                       :with => /^[a-zA-Z0-9_-]+$/,
                       :message => "Must be formatted correctly."
-  # validates :profile_name, format: {
-  #   with: /a-zA-Z09_-/,
-  #   message: "Must be formatted correctly."
-  # }
 
   #relationship
   has_many :statuses
@@ -33,11 +29,13 @@ class User < ActiveRecord::Base
   def full_name
   	first_name + " " + last_name
   end
-  def gravatar_url
-    strippedEmail = email.strip
-    lowerEmail = strippedEmail.downcase
-    hashedEmail = Digest::MD5.hexdigest(lowerEmail)
 
-    "http://gravatar.com/avatar/#{hashedEmail}"
+  def gravatar_url
+    strippedEmail = email.strip                       #removed leading and trailing spaces
+    lowerEmail = strippedEmail.downcase               #downcase email
+    hashedEmail = Digest::MD5.hexdigest(lowerEmail)   #hash
+
+    "http://gravatar.com/avatar/#{hashedEmail}"       #create hotlink to img
   end
+
 end

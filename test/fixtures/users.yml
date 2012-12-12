@@ -15,3 +15,9 @@ jim :
   email : "jim@gmail.com"
   first_name : "Jim"
   last_name : "BoOO"
+
+mike :
+  profile_name : "mike"
+  email : "mike@gmail.com"
+  first_name : "mike"
+  last_name : "ch"

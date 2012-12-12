@@ -2,6 +2,9 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+	should have_many(:user_friendships)
+	should have_many(:friends)
+
 	test "user should have a first name" do
 		user = User.new
 		assert !user.save
@@ -35,4 +38,18 @@ class UserTest < ActiveSupport::TestCase
 		assert !user.errors[:profile_name].empty?	#check errors array **should NOT be empty
 		assert user.errors[:profile_name].include?("Must be formatted correctly.") #this msg must be included
 	end
+
+	test "that no error is raised when try to get to someones friends" do
+		assert_nothing_raised do
+			users(:javier).friends
+		end
+	end
+
+	test "that creating user_friendships works" do
+		users(:javier).friends << users(:mike)		#notice** this is pulling from users fixture
+													#friends fixture doesnt include mike
+		users(:javier).reload
+		assert users(:javier).friends.include?(users(:mike))
+	end
+
 end
